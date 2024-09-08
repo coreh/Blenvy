@@ -157,27 +157,27 @@ pub fn export_type(reg: &TypeRegistration) -> (String, Value) {
                 "long_name": t.type_path(),
                 "type": "array",
                 "typeInfo": "List",
-                "items": json!({"type": typ(info.item_type_path_table().path())}),
+                "items": json!({"type": typ(info.item_ty().type_path_table().path())}),
             })
         }
         TypeInfo::Array(info) => json!({
             "long_name": t.type_path(),
             "type": "array",
             "typeInfo": "Array",
-            "items": json!({"type": typ(info.item_type_path_table().path())}),
+            "items": json!({"type": typ(info.item_ty().type_path_table().path())}),
         }),
         TypeInfo::Map(info) => json!({
             "long_name": t.type_path(),
             "type": "object",
             "typeInfo": "Map",
-            "valueType": json!({"type": typ(info.value_type_path_table().path())}),
-            "keyType": json!({"type": typ(info.key_type_path_table().path())}),
+            "valueType": json!({"type": typ(info.value_ty().type_path_table().path())}),
+            "keyType": json!({"type": typ(info.key_ty().type_path_table().path())}),
         }),
         TypeInfo::Set(info) => json!({
             "long_name": t.type_path(),
             "type": "array",
             "typeInfo": "Set",
-            "valueType": json!({"type": typ(info.value_type_path_table().path())}),
+            "valueType": json!({"type": typ(info.value_ty().type_path_table().path())}),
         }),
         TypeInfo::Tuple(info) => json!({
             "long_name": t.type_path(),
