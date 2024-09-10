@@ -90,7 +90,7 @@ fn components_string_to_components(
         components.push((component, type_registration.clone()));
         debug!("found type registration for {}", capitalized_type_name);
     } else {
-        warn!("no type registration for {}", capitalized_type_name);
+        // warn!("no type registration for {}", capitalized_type_name);
     }
 }
 
