@@ -709,7 +709,7 @@ pub(crate) fn blueprints_cleanup_spawned_scene(
         }
 
         // copy components into from blueprint instance's blueprint_root_entity to original entity
-        commands.add(CopyComponents {
+        commands.queue(CopyComponents {
             source: blueprint_root_entity,
             destination: original,
             exclude: vec![TypeId::of::<Parent>(), TypeId::of::<Children>()],
