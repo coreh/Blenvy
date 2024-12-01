@@ -190,10 +190,10 @@ pub fn export_type(reg: &TypeRegistration) -> (String, Value) {
                 .collect::<Vec<_>>(),
             "items": false,
         }),
-        TypeInfo::Value(info) => json!({
+        TypeInfo::Opaque(info) => json!({
             "long_name": t.type_path(),
             "type": map_json_type(info.type_path()),
-            "typeInfo": "Value",
+            "typeInfo": "Opaque",
         }),
     };
     schema.as_object_mut().unwrap().insert(
